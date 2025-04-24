@@ -1,0 +1,110 @@
+<div class="container">
+    <div class="row">
+        <!-- Used when you want to conditionally display or hide elements based on some logic -->
+        @if (div1Visible == true) {
+        <div class="col-3 bg-danger p-3 mt-2">
+            div 1
+        </div>
+        }
+
+    </div>
+</div>
+<div class="container">
+    <div class="row">
+        <div class="col-3">
+            <button class="btn btn-danger" (click)="hideShowDiv(false)">hide</button>
+            <button class="btn btn-success mx-2" (click)="hideShowDiv(true)">show</button>
+
+        </div>
+    </div>
+</div>
+<div class="container">
+    <div class="row">
+        <div class="col-3">
+            @if (isChecked == true) {
+            <div class="bg-danger p-3 mt-2">
+                this Checkbox is unchecked
+            </div>
+            } @else {
+            <div class="bg-success p-3 mt-2">
+                this Checkbox is checked
+            </div>
+            }
+
+
+        </div>
+        <div class="col-3 mt-4">
+            @if (dayName == "mon") {
+            <span>Monday</span>
+            } @else if (dayName == "tue") {
+            <span>Tuesday</span>
+            } @else if (dayName == "wed") {
+            <span>Wednesday</span>
+            } @else {
+            <span>
+                Enter full day name
+            </span>
+            }
+
+        </div>
+    </div>
+</div>
+<!-- Used in form inputs like <input>, <select>, 
+    and <textarea> to synchronize data between the UI and component. -->
+<div class="container">
+    <div class="row">
+        <div class="col-3">
+            <input type="checkbox" name="" id="" [(ngModel)]="isChecked">
+        </div>
+        <div class="col-3">
+            <input type="text" class="form-control" name="" id="" maxlength="3" [(ngModel)]="dayName"
+                placeholder="Enter Full Name">
+
+        </div>
+    </div>
+</div>
+<div class="container">
+    <div class="row">
+        <div class="col-3">
+            <select>
+                <!-- Used when you want to display multiple elements 
+                 based on items in an array (e.g., products, users, cities, etc.). -->
+                @for (item of cityList; track $index) {
+                <option>{{item}}</option>
+                }
+            </select>
+        </div>
+        <div class="col-5">
+            <!-- Used when you want to display multiple elements based 
+             on items in an array (e.g., products, users, cities, etc.). Great for tables, dropdowns, and dynamic buttons -->
+            @for (item of cityList; track $index) {
+            <button class="btn btn-success mx-2">{{item}}</button>
+            }
+        </div>
+    </div>
+</div>
+
+<div class="container">
+    <div class="row">
+        <div class="col-5">
+            <table class="table table-bordered p-2">
+                <thead>
+                    <tr>
+                        <th>SrNO</th>
+                        <th>Name</th>
+                        <th>ContactNo</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @for (item of employeeArray; track $index) {
+                    <tr>
+                        <td> {{$index+1}}</td>
+                        <td>{{item.Name}}</td>
+                        <td>{{item.contactNo}}</td>
+                    </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>

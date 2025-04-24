@@ -1,0 +1,41 @@
+
+<!-- [ngStyle] is a built-in Angular directive used to dynamically apply inline CSS 
+ styles to an element based on conditions,
+  variables, or expressions. -->
+  <!-- Use ngStyle?
+   Dynamically change style properties (e.g., background color, font size) -->
+
+<div class="container">
+    <div class="row">
+        <div class="col-3 p-3 mt-3 tet-white" [ngStyle]="{'background-color': divBsckColor}">
+            <!-- The style background-color is bound to the variable divBsckColor in your component. -->
+            div 1
+        </div>
+        <div class="col-3 p-3 mt-4 tet-white" [ngStyle]="{'background-color': isChecked ==true? 'green' : 'teal'}">
+            div 2
+
+        </div>
+        <!-- Styles are coming from an object called myCss in your TypeScript file. -->
+        <div class="col-3 mt-4 p-3 mx-2" [ngStyle]="myCss">
+            div 3
+
+        </div>
+    </div>
+</div>
+
+<div class="container">
+    <div class="row">
+        <div class="col-3">
+            <button class="btn btn-success" (click)="addDivBackColor('green')">Green</button>
+            <button class="btn btn-danger mx-2" (click)="addDivBackColor('red')">Red</button>
+
+        </div>
+        <div class="col-3">
+            <input type="checkbox" name="" id="" [(ngModel)]="isChecked">
+
+        </div>
+        <div class="col-3">
+
+        </div>
+    </div>
+</div>

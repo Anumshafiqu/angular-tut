@@ -1,0 +1,35 @@
+<!-- Use [ngClass] when you want to dynamically assign CSS classes 
+ to an HTML element based on a condition, variable, or expression. -->
+ <!-- Reduce writing manual class="{{condition ? 'class1' : 'class2'}}" syntax in templates. -->
+
+<div class="container">
+    <div class="row">
+        <div class="col-3 p-3 mt-3 text-white" [ngClass]="divBckColor">
+            div 1
+
+        </div>
+        <div class="col-3 p-3 mt-3 text-white mx-2" [ngClass]="isChecked ? 'bg-success' : 'bg-danger'">
+            div 2
+
+        </div>
+        <div class="col-3 p-3 mt-3 text-white mx-2" [ngClass]="div3ClassName">
+            div 3
+        </div>
+    </div>
+</div>
+<div class="container">
+    <div class="row">
+        <div class="col-3">
+            <button class="btn btn-success" (click)="addDiv1Color('bg-success')">Green</button>
+            <button class="btn btn-danger mx-2" (click)="addDiv1Color('bg-danger')">Red</button>
+
+        </div>
+        <div class="col-3">
+            <input type="checkbox" name="" id="" [(ngModel)]="isChecked">
+            -{{isChecked}}
+        </div>
+        <div class="col-3">
+            <input type="text" name="" id="" [(ngModel)]="div3ClassName" class="ml-3 form-control">
+        </div>
+    </div>
+</div>

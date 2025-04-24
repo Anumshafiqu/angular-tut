@@ -1,0 +1,53 @@
+<!-- *ngFor is a structural directive used to loop through a list (array or iterable)
+  and repeat a block of HTML for each item in the list -->
+<!-- use
+   Displaying lists of items (cities, employees, products, etc.)
+
+Dynamically generating UI elements like: -->
+
+<!-- Syntax
+*ngFor="let item of items; let i = index;" -->
+
+<!-- If you add, remove, or change items in the array, Angular will automatically
+  update the DOM — no need to refresh the page manually! -->
+<div class="container">
+    <div class="row">
+        <div class="col-2 mt-3">
+            <ul>
+                <li *ngFor="let city of cityArray"> {{city}}</li>
+            </ul>
+        </div>
+        <div class="col-5 mt-3">
+            <button class="btn btn-success mx-2" *ngFor="let cityName of cityArray">{{cityName}}</button>
+        </div>
+        <!-- Creates a button for each city in the array
+
+         Dynamically rendered → If cityArray changes, buttons auto-update
+
+        Useful for filters, category buttons, tag selectors, etc. -->
+    </div>
+</div>
+
+<div class="container">
+    <div class="row">
+        <div class="col-5">
+            <table class="table table-bordered p-2">
+                <thead>
+                    <tr>
+                        <th>SrNO</th>
+                        <th>Name</th>
+                        <th>ContactNo</th>
+                    </tr>
+                </thead>
+                <tbody>
+
+                    <tr *ngFor="let employeeList of employeeArray ; let srno = index">
+                        <td>{{srno}}</td>
+                        <td>{{employeeList.Name}}</td>
+                        <td>{{employeeList.contactNo}}</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,38 @@
+
+<!-- he *ngIf directive is used to conditionally add or remove
+  elements from the DOM based on a boolean expression. -->
+  <!-- This div only renders if div1Visible == true.
+
+Perfect for toggling elements like modals, panels, alerts, etc. -->
+<!-- When condition is true → Angular inserts the element in the DOM.
+
+When condition is false → Angular removes it from the DOM completely. -->
+<div class="container">
+    <div class="row">
+        <div class="col-3 bg-primary p-3 text-white mt-3" *ngIf="div1Visible">
+            div 1
+        </div>
+        <!-- div 2 is shown only if both input values match. -->
+        <div class="col-3 bg-primary p-3 text-white mt-3 mx-2" *ngIf="number1 == number2">
+            div 2
+        </div>
+    </div>
+</div>
+
+<!-- buttons -->
+<div class="container">
+    <div class="row">
+<div class="col-3" >
+    <button class="btn btn-danger" (click)="div1hide()">
+        hide
+    </button>
+    <button class="btn btn-success mx-2" (click)="div1show()">
+        Show
+    </button>
+</div>
+<div class="col-3">
+    <input type="text" name="" id="" [(ngModel)]="number1" class="form-control">
+    <input type="text" name="" id="" [(ngModel)]="number2" class="form-control mt-1">
+</div>
+    </div>
+</div>

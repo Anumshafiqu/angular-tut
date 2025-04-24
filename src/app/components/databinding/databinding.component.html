@@ -1,0 +1,52 @@
+
+<!-- Data binding in Angular is the connection between the component
+  (TypeScript code) and the view (HTML template). It allows data to
+   flow between the two seamlessly.
+
+Angular supports 4 primary types of data binding: -->
+
+
+<!-- Interpolation — {{ value }}
+
+To display component data in the HTML. -->
+
+
+<h1>{{ title }}</h1>
+
+
+<!--Property Binding — [property]="value"
+
+
+To bind values to DOM element properties. -->
+
+property binding<br><br>
+<input type="text" name="" id="" [value]="textdiv" class="form-control w-25">
+
+
+
+<!-- 
+Event Binding — (event)="handler()"
+
+
+To respond to user actions like clicks, typing, etc. -->
+   
+<br><br>
+eventbinding
+<br>
+
+
+<button (click)="sayHello()" class="btn btn-success mt-3">Click Me</button>
+
+
+
+<!-- Two-Way Binding — [(ngModel)]="value"
+
+
+To sync data between the input field and component property.
+
+Requires FormsModule in your module. -->
+
+
+<input [(ngModel)]="username" class="form-control w-25 my-3">
+<p>Hello {{ username }}</p>
+
