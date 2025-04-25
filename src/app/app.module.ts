@@ -10,6 +10,8 @@ import { NgClassComponent } from './components/ng-class/ng-class.component';
 import { NgStyleComponent } from './components/ng-style/ng-style.component';
 import { ControlStatementComponent } from './components/control-statement/control-statement.component';
 import { DatabindingComponent } from './components/databinding/databinding.component';
+import { SignalsComponent } from './components/signals/signals.component';
+import { LinkedSignalComponent } from './components/linked-signal/linked-signal.component';
 
 @NgModule({
   declarations: [
@@ -20,6 +22,8 @@ import { DatabindingComponent } from './components/databinding/databinding.compo
     NgStyleComponent,
     ControlStatementComponent,
     DatabindingComponent,
+    SignalsComponent,
+    LinkedSignalComponent,
     
   ],
   imports: [

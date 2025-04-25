@@ -1,0 +1,18 @@
+    
+<!-- A Signal is a reactive variable in Angular — it stores a value and automatically
+  updates the UI or other logic when the value changes -->
+
+  <!-- in Angular 17, you can use Signals instead of zone.js to handle UI updates manually and reactively -->
+
+    <p class="m-3 fw-medium">Signals in angular</p>
+
+<!-- signal an be access like a method method() -->
+    <p class="m-3 fw-medium">{{firstName()}}</p>
+
+    <input type="text" name="" id="" [value]="lastName()" class="form-control w-25 mt-3 mx-3">
+
+    <p class="m-3 fw-medium">{{courseName}}</p>
+
+    <p class="m-3 fw-medium">{{rollNumber()}}</p>
+
+    <button class="btn btn-success mx-3" (click)="onincrement()">increment</button>

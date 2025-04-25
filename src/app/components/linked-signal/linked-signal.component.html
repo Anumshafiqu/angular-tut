@@ -1,0 +1,24 @@
+
+
+
+
+<!-- A linked signal (called a computed signal) is a signal that
+  automatically updates when other signals change. -->
+<!-- A computed signal is linked to one or more signals. It automatically changes
+  when the source signals change. -->
+    <div class="container">
+        <div class="row">
+            <div class="col-3">
+  <p>{{fullName()}}</p>
+
+  <button class="btn btn-success mb-2" (click)="CahngeName()">Change full Name</button>
+
+  <!-- <p>{{email()}}</p>
+  <button class="btn btn-success" (click)="changeId()">Change id</button> -->
+
+  <p>{{ email() }}</p>
+  <button class="btn btn-success my-2" (click)="changeId()">Change email</button>
+  
+</div>
+</div>
+</div>

@@ -6,6 +6,8 @@ import { NgStyleComponent } from './components/ng-style/ng-style.component';
 import { NgClassComponent } from './components/ng-class/ng-class.component';
 import { NgForComponent } from './components/ng-for/ng-for.component';
 import { DatabindingComponent } from './components/databinding/databinding.component';
+import { SignalsComponent } from './components/signals/signals.component';
+import { LinkedSignalComponent } from './components/linked-signal/linked-signal.component';
 
 const routes: Routes = [
   {path : '', component:NgIfComponent},
@@ -14,7 +16,9 @@ const routes: Routes = [
   {path : 'control-statement', component:ControlStatementComponent},
   {path : 'ng-style', component: NgStyleComponent},
   {path : 'ng-class', component:NgClassComponent},
-  {path : 'ng-for', component:NgForComponent}
+  {path : 'ng-for', component:NgForComponent},
+  {path : 'signals', component:SignalsComponent},
+  {path : 'linked-signal', component:LinkedSignalComponent}
 ];
 
 @NgModule({
