@@ -1,0 +1,53 @@
+
+<!-- API is like a bridge between two different software
+  applications that helps them communicate and share data with each other. -->
+<!-- an API lets your app talk to a server and exchange information
+  like user details, products, weather updates, etc. -->
+<div class="container">
+    <div class="row">
+        <div class="col-6">
+            <button class="btn btn-success" (click)="getUser()">Load User</button>
+        </div>
+        <div class="col-12">
+            <table class="table table-bordered p-3">
+                <thead>
+                    <tr>
+                        <th>Sr no</th>
+                        <th>Name</th>
+                        <th>userName</th>
+                        <th>Email</th>
+                        <th>Phone</th>
+                        <th>Website</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @for (item of userList; track $index) {
+                        <tr>
+                            <td>{{$index + 1}}</td>
+                            <td>{{item.name}}</td>
+                            <td>{{item.username}}</td>
+                            <td>{{item.email}}</td>
+                            <td>{{item.phone}}</td>
+                            <td>{{item.website}}</td>
+
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+
+
+<div class="container">
+    <div class="row col-3">
+        <button class="btn btn-success my-4" (click)="getProduct()">Product List</button>
+
+        <select name="" id="" class="p-2">
+            @for (item of productList; track $index) {
+                <option [value]="item.product_id">{{item.name}}</option>
+            }
+        </select>
+    </div>
+</div>

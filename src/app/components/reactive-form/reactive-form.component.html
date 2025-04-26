@@ -1,0 +1,90 @@
+
+
+<!-- Reactive Forms are a way to build and manage forms in Angular using code (TypeScript) instead of only HTML. -->
+ <!--  You create the form and control its validations completely in the .ts (TypeScript) file,
+ and then connect it to your HTML.
+ Strong control over validation and form states.
+ Reactive Forms in Angular are forms built and controlled entirely by TypeScript code, giving you strong,
+  dynamic, and powerful form management. -->
+<div class="container">
+    <div class="row">
+        <div class="col-12">
+            <form class="row g-3" [formGroup]="userForm" (ngSubmit)="onSaveUser()">
+                <div class="col-md-4">
+                  <label for="validationCustom01" class="form-label">First name</label>
+                  <input type="text" class="form-control" formControlName="fName" id="validationCustom01" value="Mark" required>
+                  <div class="text-danger">
+                    @if (userForm.controls['fName'].errors?.['required'] && userForm.controls['fName'].touched) {
+                        <span>This is Required</span>
+                    }
+                  </div>
+                </div>
+                <div class="col-md-4">
+                  <label for="validationCustom02" class="form-label">Last name</label>
+                  <input type="text" class="form-control" formControlName="lName" minlength="5" id="validationCustom02" value="Otto" required>
+                  @if (userForm.controls['lName'].touched) {
+                    <div class="text-danger">
+                        @if (userForm.controls['lName'].errors?.['required']) {
+                            <span>This is Required</span>
+                        }
+                        @if (userForm.controls['lName'].errors?.['minlength']) {
+                            <span>min 5 char required</span>
+                        }
+                        
+                      </div>
+                  }
+
+                </div>
+                <div class="col-md-4">
+                  <label for="validationCustomUsername" class="form-label">Username</label>
+                  <div class="input-group has-validation">
+                    <span class="input-group-text" id="inputGroupPrepend">&#64;</span>
+                    <input type="text" class="form-control" formControlName="userName">
+                    <div class="invalid-feedback">
+                      Please choose a username.
+                    </div>
+                  </div>
+                </div>
+                <div class="col-md-6">
+                  <label for="validationCustom03" class="form-label">City</label>
+                  <input type="text" class="form-control" formControlName="city">
+                  <div class="invalid-feedback">
+                    Please provide a valid city.
+                  </div>
+                </div>
+                <div class="col-md-3">
+                  <label for="validationCustom04" class="form-label">State</label>
+                  <select class="form-select" formControlName="state">
+                    <option selected disabled value="">Choose...</option>
+                    <option>...</option>
+                  </select>
+                  <div class="invalid-feedback">
+                    Please select a valid state.
+                  </div>
+                </div>
+                <div class="col-md-3">
+                  <label for="validationCustom05" class="form-label">Zip</label>
+                  <input type="text" class="form-control" formControlName="zip">
+                  <div class="invalid-feedback">
+                    Please provide a valid zip.
+                  </div>
+                </div>
+                <div class="col-12">
+                  <div class="form-check">
+                    <input class="form-check-input" type="checkbox" formControlName="isTermAgree">
+                    <label class="form-check-label" for="invalidCheck">
+                      Agree to terms and conditions
+                    </label>
+                    <div class="invalid-feedback">
+                      You must agree before submitting.
+                    </div>
+                  </div>
+                </div>
+                <div class="col-12">
+                    -{{userForm.valid}}
+                  <button class="btn btn-primary" type="submit" [disabled]="!userForm.valid">Submit form</button>
+                </div>
+              </form>
+        </div>
+    </div>
+</div>

@@ -8,6 +8,9 @@ import { NgForComponent } from './components/ng-for/ng-for.component';
 import { DatabindingComponent } from './components/databinding/databinding.component';
 import { SignalsComponent } from './components/signals/signals.component';
 import { LinkedSignalComponent } from './components/linked-signal/linked-signal.component';
+import { TemplateFormComponent } from './components/template-form/template-form.component';
+import { ReactiveFormComponent } from './components/reactive-form/reactive-form.component';
+import { GetApiComponent } from './components/get-api/get-api.component';
 
 const routes: Routes = [
   {path : '', component:NgIfComponent},
@@ -18,7 +21,10 @@ const routes: Routes = [
   {path : 'ng-class', component:NgClassComponent},
   {path : 'ng-for', component:NgForComponent},
   {path : 'signals', component:SignalsComponent},
-  {path : 'linked-signal', component:LinkedSignalComponent}
+  {path : 'linked-signal', component:LinkedSignalComponent},
+  {path : 'template-form', component:TemplateFormComponent},
+  {path : 'reactive-form', component: ReactiveFormComponent},
+  {path : 'get-api', component: GetApiComponent}
 ];
 
 @NgModule({

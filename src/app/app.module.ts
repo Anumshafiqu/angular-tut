@@ -12,6 +12,11 @@ import { ControlStatementComponent } from './components/control-statement/contro
 import { DatabindingComponent } from './components/databinding/databinding.component';
 import { SignalsComponent } from './components/signals/signals.component';
 import { LinkedSignalComponent } from './components/linked-signal/linked-signal.component';
+import { TemplateFormComponent } from './components/template-form/template-form.component';
+import { ReactiveFormComponent } from './components/reactive-form/reactive-form.component';
+import { ReactiveFormsModule } from '@angular/forms';
+import { GetApiComponent } from './components/get-api/get-api.component';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -24,12 +29,17 @@ import { LinkedSignalComponent } from './components/linked-signal/linked-signal.
     DatabindingComponent,
     SignalsComponent,
     LinkedSignalComponent,
+    TemplateFormComponent,
+    ReactiveFormComponent,
+    GetApiComponent,
     
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
+    ReactiveFormsModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]
