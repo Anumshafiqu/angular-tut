@@ -1,0 +1,107 @@
+
+
+
+
+<!-- A POST API is used to send data to a server to create a new resource 
+ (like creating a new car, a new user, a new order, etc.).
+ post api :"I want to ADD something new to the server.
+ It sends the data to the server using POST. -->
+<!-- PUT is used to update an existing resource on the server
+ put: "I want to UPDATE something that already exists." -->
+
+ <!-- DELETE is used to remove or delete an existing item from the server/database
+  I want to REMOVE something from the server.
+  DELETE is used when you want to clean/remove something permanently from the server -->
+
+
+
+
+<div class="container mt-5">
+    <h2 class="text-center mb-4">POST API Integration using Template Form</h2>
+  
+    <div class="d-flex justify-content-end mb-3">
+      <button class="btn btn-success" (click)="getAllCars()">Load Cars</button>
+    </div>
+  
+    <div class="row">
+      <!-- Car List Section -->
+      <div class="col-md-7">
+        <div class="card border-warning mb-3">
+          <div class="card-header bg-warning text-white fw-bold">Car List</div>
+          <div class="card-body">
+            <table class="table table-striped table-bordered">
+              <thead class="table-dark">
+                <tr>
+                  <th>Sr No</th>
+                  <th>Brand</th>
+                  <th>Model</th>
+                  <th>Reg No</th>
+                  <th>Daily Rate</th>
+                  <th>Actions</th>
+                </tr>
+              </thead>
+              <tbody>
+
+                @for (item of carList; track $index) {
+                    <tr>
+                        <td>{{$index+1}}</td>
+                        <td>{{item.brand}}</td>
+                        <td>{{item.model}}</td>
+                        <td>{{item.regNo}}</td>
+                        <td>{{item.dailyRate}}</td>
+                        <td>
+                            <button class="btn btn-success small" (click)="onEdit(item)">edit</button>
+                            <button class="btn btn-success small mx-2" (click)="onDelete(item.carId)">Delete</button>
+                        </td>
+                    </tr>
+                }
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+  
+      <!-- Create New Car Form Section -->
+      <div class="col-md-5">
+        <div class="card border-warning mb-3">
+          <div class="card-header bg-warning text-white fw-bold">Create New Car</div>
+          <div class="card-body">
+            <form>
+              <div class="mb-3">
+                <input type="text" [(ngModel)]="carObj.regNo" name="regNo" class="form-control" placeholder="Enter car reg no">
+              </div>
+              <div class="mb-3">
+                <input type="text" [(ngModel)]="carObj.brand" name="brand" class="form-control" placeholder="Enter brand name">
+              </div>
+              <div class="mb-3">
+                <input type="text" name="model" [(ngModel)]="carObj.model" class="form-control" placeholder="Enter model name">
+              </div>
+              <div class="mb-3">
+                <input type="text" name="carId" [(ngModel)]="carObj.carId" class="form-control" placeholder="Enter model name">
+              </div>
+              <!-- <div class="mb-3">
+                <input type="text" name="name" [(ngModel)]="carObj.name" class="form-control" placeholder="Enter model name">
+              </div> -->
+              <div class="mb-3">
+                <input type="text" name="year" [(ngModel)]="carObj.year" class="form-control" placeholder="Enter year">
+              </div>
+              <div class="mb-3">
+                <input type="text" name="color" [(ngModel)]="carObj.color" class="form-control" placeholder="Enter color">
+              </div>
+              <div class="mb-3">
+                <input type="text" name="dailyRate" [(ngModel)]="carObj.dailyRate" class="form-control" placeholder="Enter daily rate">
+              </div>
+              <div class="mb-3">
+                <input type="text" name="carImage" [(ngModel)]="carObj.carImage" class="form-control" placeholder="Enter car image URL">
+              </div>
+              <div class="d-flex justify-content-between">
+                <button type="submit" class="btn btn-primary" (click)="onSaveCar()">Save car</button>
+                <button type="submit" class="btn btn-primary" (click)="onUpdateCar()">Update Car</button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+  
+    </div>
+  </div>

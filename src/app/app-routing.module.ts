@@ -11,6 +11,7 @@ import { LinkedSignalComponent } from './components/linked-signal/linked-signal.
 import { TemplateFormComponent } from './components/template-form/template-form.component';
 import { ReactiveFormComponent } from './components/reactive-form/reactive-form.component';
 import { GetApiComponent } from './components/get-api/get-api.component';
+import { PostApiComponent } from './components/post-api/post-api.component';
 
 const routes: Routes = [
   {path : '', component:NgIfComponent},
@@ -24,7 +25,8 @@ const routes: Routes = [
   {path : 'linked-signal', component:LinkedSignalComponent},
   {path : 'template-form', component:TemplateFormComponent},
   {path : 'reactive-form', component: ReactiveFormComponent},
-  {path : 'get-api', component: GetApiComponent}
+  {path : 'get-api', component: GetApiComponent},
+  {path : 'Post-api', component: PostApiComponent}
 ];
 
 @NgModule({

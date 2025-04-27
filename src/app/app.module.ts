@@ -17,6 +17,7 @@ import { ReactiveFormComponent } from './components/reactive-form/reactive-form.
 import { ReactiveFormsModule } from '@angular/forms';
 import { GetApiComponent } from './components/get-api/get-api.component';
 import { HttpClientModule } from '@angular/common/http';
+import { PostApiComponent } from './components/post-api/post-api.component';
 
 @NgModule({
   declarations: [
@@ -32,6 +33,7 @@ import { HttpClientModule } from '@angular/common/http';
     TemplateFormComponent,
     ReactiveFormComponent,
     GetApiComponent,
+    PostApiComponent,
     
   ],
   imports: [
