@@ -1,0 +1,29 @@
+
+<!-- Resource means something important your app works with — like Car, User, Product, Order, etc.
+
+ A Resource API is an API that lets you Create, Read, Update,
+  and Delete (CRUD) a particular thing (resource) on the server.
+
+Resource:	Important item you are working with (Car, User, Product, etc.)
+Resource API : 	APIs to Create, Read, Update, Delete that resource
+Why needed :	To manage your app data properly -->
+<div class="container">
+    <div class="row">
+        <div class="col-3">
+            <p>{{userList.hasValue()}}</p>
+            <!-- is used for check the api call is inprogress or not -->
+            <!-- <p>{{userList.isLoading()}}</p> -->
+        </div>
+        <div class="col-4">
+            <ul>
+                <!-- used fo show data -->
+                @for (item of userList.value(); track $index) {
+                    <li>{{item.name}} - {{item.username}}</li>
+                }
+            </ul>
+        </div>
+        <div class="col-4">
+            <button class="btn btn-success" (click)="reloadData()">Reload button</button>
+        </div>
+    </div>
+</div>

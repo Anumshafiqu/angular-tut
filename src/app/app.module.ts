@@ -18,6 +18,9 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { GetApiComponent } from './components/get-api/get-api.component';
 import { HttpClientModule } from '@angular/common/http';
 import { PostApiComponent } from './components/post-api/post-api.component';
+import { ResourceApiComponent } from './components/resource-api/resource-api.component';
+import { CustomerComponent } from './components/customer/customer.component';
+import { LifeCycleComponent } from './components/life-cycle/life-cycle.component';
 
 @NgModule({
   declarations: [
@@ -34,6 +37,9 @@ import { PostApiComponent } from './components/post-api/post-api.component';
     ReactiveFormComponent,
     GetApiComponent,
     PostApiComponent,
+    ResourceApiComponent,
+    CustomerComponent,
+    LifeCycleComponent,
     
   ],
   imports: [

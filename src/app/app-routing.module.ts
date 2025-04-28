@@ -12,6 +12,9 @@ import { TemplateFormComponent } from './components/template-form/template-form.
 import { ReactiveFormComponent } from './components/reactive-form/reactive-form.component';
 import { GetApiComponent } from './components/get-api/get-api.component';
 import { PostApiComponent } from './components/post-api/post-api.component';
+import { ResourceApiComponent } from './components/resource-api/resource-api.component';
+import { CustomerComponent } from './components/customer/customer.component';
+import { LifeCycleComponent } from './components/life-cycle/life-cycle.component';
 
 const routes: Routes = [
   {path : '', component:NgIfComponent},
@@ -26,7 +29,10 @@ const routes: Routes = [
   {path : 'template-form', component:TemplateFormComponent},
   {path : 'reactive-form', component: ReactiveFormComponent},
   {path : 'get-api', component: GetApiComponent},
-  {path : 'Post-api', component: PostApiComponent}
+  {path : 'Post-api', component: PostApiComponent},
+  {path : 'Resource-api', component: ResourceApiComponent},
+  {path : 'customer', component: CustomerComponent},
+  {path : 'life-cycle', component: LifeCycleComponent}
 ];
 
 @NgModule({
