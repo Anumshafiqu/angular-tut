@@ -9,6 +9,7 @@ import { HttpClient } from '@angular/common/http';
   styleUrl: './customer.component.css'
 })
 export class CustomerComponent {
+  customerTabs:any [] = ["Basic info" , "Paln info", "payment"]
 
   customerList:any [] = [];
   customerObj :any = {

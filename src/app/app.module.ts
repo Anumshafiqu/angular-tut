@@ -21,6 +21,9 @@ import { PostApiComponent } from './components/post-api/post-api.component';
 import { ResourceApiComponent } from './components/resource-api/resource-api.component';
 import { CustomerComponent } from './components/customer/customer.component';
 import { LifeCycleComponent } from './components/life-cycle/life-cycle.component';
+import { PipeNaPipe } from './components/pipe-na.pipe';
+import { ProgressBarComponent } from './reusable/progress-bar/progress-bar.component';
+import { TabsComponent } from './reusable/tabs/tabs.component';
 
 @NgModule({
   declarations: [
@@ -40,6 +43,9 @@ import { LifeCycleComponent } from './components/life-cycle/life-cycle.component
     ResourceApiComponent,
     CustomerComponent,
     LifeCycleComponent,
+    PipeNaPipe,
+    ProgressBarComponent,
+    TabsComponent,
     
   ],
   imports: [

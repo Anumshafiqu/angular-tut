@@ -1,3 +1,74 @@
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- In Angular, a Pipe is a feature used to transform data in your templates before displaying it to the user.
+
+Think of a pipe like a data filter or formatter.
+-->
+<!-- Pipes make your templates clean and readable. -->
+
+<div class="container">
+    <div class="row">
+        <div class="col-7 p-4">
+            <app-progress-bar [progressValue]="20"></app-progress-bar>
+        </div>
+    </div>
+</div>
+
+
+<div class="container">
+    <div class="row">
+        <div class="col-3">
+            courseName = > {{courseName}}
+            <br>
+            courseName => {{courseName | uppercase}}
+        </div>
+        <div class="col-3">
+            courseName = > {{courseName}}
+            <br>
+            lowercase => {{courseName | lowercase}}
+        </div>
+        <div class="col-3">
+            studentObj => {{studentObj | json}}
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-3">
+            Date :  {{currentDate}}
+            onlyDate : {{currentDate | date}}
+        </div>
+        <div class="col-3">
+            Date :  {{currentDate}}
+            onlyDate : {{currentDate | date: 'dd-MM-YY'}}
+        </div>
+        <div class="col-3">
+            Date :  {{currentDate}}
+            onlyDate : {{currentDate | date: 'dd-MM-YYYY'}}
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
 <!-- *ngFor is a structural directive used to loop through a list (array or iterable)
   and repeat a block of HTML for each item in the list -->
 <!-- use
@@ -37,14 +108,18 @@ Dynamically generating UI elements like: -->
                         <th>SrNO</th>
                         <th>Name</th>
                         <th>ContactNo</th>
+                        <th>Attendance</th>
                     </tr>
                 </thead>
                 <tbody>
 
                     <tr *ngFor="let employeeList of employeeArray ; let srno = index">
                         <td>{{srno}}</td>
-                        <td>{{employeeList.Name}}</td>
+                        <td>{{employeeList.Name | pipeNa}}</td>
                         <td>{{employeeList.contactNo}}</td>
+                        <td>
+                            <app-progress-bar [progressValue]="employeeList.attendance"></app-progress-bar>
+                        </td>
                     </tr>
                 </tbody>
             </table>

@@ -1,5 +1,7 @@
 import { HttpClient } from '@angular/common/http';
-import { Component, inject } from '@angular/core';
+import { Component, ElementRef, inject, OnInit, ViewChild } from '@angular/core';
+import { Car, IcarList } from '../model/car';
+import { TabsComponent } from '../../reusable/tabs/tabs.component';
 
 @Component({
   selector: 'app-post-api',
@@ -7,25 +9,52 @@ import { Component, inject } from '@angular/core';
   templateUrl: './post-api.component.html',
   styleUrl: './post-api.component.css'
 })
-export class PostApiComponent {
+export class PostApiComponent{
   
-  // http = inject(HttpClient);
-  // carList : any [] = [] ;
-  // carObj:any = {
-  //   "carId": 0,
-  //   "brand": "",
-  //   "model": "",
-  //   "year": 0,
-  //   "color": "",
-  //   "dailyRate": 0,
-  //   "carImage": "",
-  //   "regNo": ""
+   http = inject(HttpClient);
+   carList : any [] = [
+    {
+      brand: 'Toyota',
+      model: 'Camry',
+      regNo: 'ABC123',
+      year: 2020,
+      color: 'Black',
+      dailyRate: 70
+    },
+    {
+      brand: 'Honda',
+      model: 'Civic',
+      regNo: 'XYZ456',
+      year: 2019,
+      color: 'White',
+      dailyRate: 65
+    }
+   ] ;
+  carObj:Car = new Car();
+  // @ViewChild is a decorator in Angular that lets you get a reference to a DOM element, component,
+  //  or directive in your template from your TypeScript code (class).
+  @ViewChild(TabsComponent) myTabViewChild : TabsComponent | undefined ;
+  @ViewChild('txtCity') myCityTxtBox :ElementRef | undefined ;
+  // readCity() {
+  //   const city = this.myCityTxtBox?.nativeElement.value;
+  //   if(this.myCityTxtBox) {
+  //     this.myCityTxtBox.nativeElement.style.color = "red";
+  //   }
+  //   const value = this.myTabViewChild?.currentTab;
+    
   // }
-  // getAllCars(){
-  //   this.http.get("https://freeapi.miniprojectideas.com/api/CarRentalApp/GetCars").subscribe((result:any)=>{
-  //     this.carList = result.data;
-  //   })
-  // }
+  readCity() {
+    const city = this.myCityTxtBox?.nativeElement.value;
+
+    const value = this.myTabViewChild?.currentTab;
+    console.log('City:', city);
+    console.log('Current Tab:', value);
+  }
+  getAllCars(){
+    this.http.get("https://freeapi.miniprojectideas.com/api/CarRentalApp/GetCars").subscribe((result:any)=>{
+      this.carList = result.data;
+    })
+  }
 
   // onSaveCar() {
   //   debugger;
@@ -38,61 +67,104 @@ export class PostApiComponent {
   //     }
   //   })
   // }
-
-
-
-
-
-
-
-  constructor(private http: HttpClient) {}
-
-  carList: any[] = [];  // Array to store list of cars
-  carObj: any = {
-    "carId": 0,
-    "brand": "",
-    "model": "",
-    "year": 0,
-    "color": "",
-    "dailyRate": 0,
-    "carImage": "",
-    "regNo": ""
-  };
-
-  // Get all cars from the API
-  getAllCars() {
-    this.http.get("https://freeapi.miniprojectideas.com/api/CarRentalApp/GetCars")
-      .subscribe((result: any) => {
-        this.carList = result.data;  // Populate car list from API response
-      });
+  onSaveCar() {
+    if (this.carObj.brand && this.carObj.model) {
+      this.carList.push({ ...this.carObj });  // push a copy of the object
+      alert('Car added successfully!');
+      this.carObj = new Car()
+    } else {
+      alert('Please enter at least brand and model');
+    }
   }
+
+currentTab:string = '';
+  onTabChange(tabName :string) {
+    debugger;
+    this.currentTab = tabName;
+
+  }
+
+
+
+
+
+
+//   constructor(private http: HttpClient) {}
+
+//   carList: any[] = [];  
+//   carObj: any = {
+//     "carId": 0,
+//     "brand": "",
+//     "model": "",
+//     "year": 0,
+//     "color": "",
+//     "dailyRate": 0,
+//     "carImage": "",
+//     "regNo": ""
+//   };
+
+//   getAllCars() {
+//     this.http.get("https://freeapi.miniprojectideas.com/api/CarRentalApp/GetCars")
+//       .subscribe((result: any) => {
+//         this.carList = result.data; 
+//       });
+//   }
+
+ngOnInit(): void {
+  this.getAllCars();
+  debugger;
+}
+
+
+// onSaveCar() {
+//   this.http.post("https://freeapi.miniprojectideas.com/api/CarRentalApp/CreateNewCar", this.carObj)
+//     .subscribe((res: any) => {
+//       if (res.result) {
+//         alert("Car added successfully!");
+//         this.getAllCars();
+
+//         // Reset the form
+//         this.carObj = {
+//           "carId": 0,
+//           "brand": "",
+//           "model": "",
+//           "year": 0,
+//           "color": "",
+//           "dailyRate": 0,
+//           "carImage": "",
+//           "regNo": ""
+//         };
+//       } else {
+//         alert(res.message);
+//       }
+//     });
+// }
+
+
+ 
 
   // Save new car to the database and add it to the table
-  onSaveCar() {
-    this.http.post("https://freeapi.miniprojectideas.com/api/CarRentalApp/CreateNewCar", this.carObj)
-      .subscribe((res: any) => {
-        if (res.result) {
-          alert("Car added successfully!");
-
-          // Add the newly added car to the table without re-fetching the entire list
-          this.carList.push(res.data);
-
-          // Optionally, clear the form after adding the car
-          this.carObj = {
-            "carId": 0,
-            "brand": "",
-            "model": "",
-            "year": 0,
-            "color": "",
-            "dailyRate": 0,
-            "carImage": "",
-            "regNo": ""
-          };
-        } else {
-          alert(res.message);  // Show error message
-        }
-      });
-  }
+  // onSaveCar() {
+  //   this.http.post("https://freeapi.miniprojectideas.com/api/CarRentalApp/CreateNewCar", this.carObj)
+  //     .subscribe((res: any) => {
+  //       if (res.result) {
+  //         alert("Car added successfully!");
+  //         this.carList.push(res.data);
+  //         this.carObj = {
+  //           "carId": 0,
+  //           "brand": "",
+  //           "model": "",
+  //           "year": 0,
+  //           "color": "",
+  //           "dailyRate": 0,
+  //           "carImage": "",
+  //           "regNo": ""
+  //         };
+  //       } else {
+  //         alert(res.message);
+  //       }
+  //     });
+  // }
 
   onEdit(data:any) {
     this.carObj = data
@@ -127,6 +199,20 @@ export class PostApiComponent {
   
   
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
 
 
 
