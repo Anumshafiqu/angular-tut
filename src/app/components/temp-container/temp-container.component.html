@@ -1,0 +1,67 @@
+<div class="container">
+    <div class="row">
+        <div class="col-5">
+            <table class="table table-bordered p-2">
+                <thead>
+                    <tr>
+                        <th>SrNO</th>
+                        <th>Name</th>
+                        <th>ContactNo</th>
+                        <th>Status</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!-- ng-container, ng-template, and ngTemplateOutlet are structural elements used to manage dynamic and
+                          reusable UI logic without adding extra elements to the DOM. -->
+                    <!-- A logical grouping element that doesn't render anything in the DOM. -->
+                    <!-- Dynamically inserts an ng-template into the view.
+                        Useful for reusing templates or passing templates as inputs to components. -->
+                    <!-- To apply Angular structural directives (*ngIf, *ngFor, etc.) without adding extra HTML to the DOM.
+Why it matters:
+Keeps your DOM clean — useful when wrapping multiple elements
+ with logic but don't want extra tags like <div>. -->
+                    <ng-container *ngIf="isLoader">
+
+                        <ng-container *ngTemplateOutlet="loaderSpinner">
+
+                        </ng-container>
+
+                    </ng-container>
+                    <ng-container *ngIf="!isLoader">
+                        <tr *ngFor="let employeeList of employeeArray ; let srno = index">
+                            <td>{{srno}}</td>
+                            <td>{{employeeList.Name | pipeNa}}</td>
+                            <td>{{employeeList.contactNo}}</td>
+                            <td>
+                                <span *ngIf="employeeList.isActive else TempDeactive">Active</span>
+                            </td>
+                        </tr>
+                    </ng-container>
+
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+<!-- Defines a template block (like a placeholder) that can be conditionally rendered or reused -->
+
+<ng-template #loaderSpinner>
+    <tr>
+        <td colspan="4">
+            <div class="spinner-border text-muted"></div>
+            <div class="spinner-border text-primary"></div>
+            <div class="spinner-border text-success"></div>
+            <div class="spinner-border text-info"></div>
+            <div class="spinner-border text-warning"></div>
+            <div class="spinner-border text-danger"></div>
+            <div class="spinner-border text-secondary"></div>
+            <div class="spinner-border text-dark"></div>
+            <div class="spinner-border text-light"></div>
+        </td>
+    </tr>
+</ng-template>
+<ng-template #TempDeactive>
+    <div class="text-danger">
+        <span>DeActive</span>
+    </div>
+</ng-template>

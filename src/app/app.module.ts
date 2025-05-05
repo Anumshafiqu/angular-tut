@@ -24,6 +24,9 @@ import { LifeCycleComponent } from './components/life-cycle/life-cycle.component
 import { PipeNaPipe } from './components/pipe-na.pipe';
 import { ProgressBarComponent } from './reusable/progress-bar/progress-bar.component';
 import { TabsComponent } from './reusable/tabs/tabs.component';
+import { TempContainerComponent } from './components/temp-container/temp-container.component';
+import { LoginComponent } from './components/login/login.component';
+import { LayoutComponent } from './components/layout/layout.component';
 
 @NgModule({
   declarations: [
@@ -46,6 +49,9 @@ import { TabsComponent } from './reusable/tabs/tabs.component';
     PipeNaPipe,
     ProgressBarComponent,
     TabsComponent,
+    TempContainerComponent,
+    LoginComponent,
+    LayoutComponent,
     
   ],
   imports: [

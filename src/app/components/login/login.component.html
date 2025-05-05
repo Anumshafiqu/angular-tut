@@ -1,0 +1,28 @@
+
+<!-- <div class="bokeh-background">
+    <div class="bokeh"></div>
+    <div class="bokeh"></div>
+    <div class="bokeh"></div>
+    <div class="bokeh"></div>
+    <div class="bokeh"></div>
+  </div>
+
+  <div class="login-card">
+    <h2>Iniciar Sesión</h2>
+    <form>
+      <input type="email" placeholder="Enter email" required [(ngModel)]="apiLoginObj.EmailId">
+      <input type="password" required [(ngModel)]="apiLoginObj.password">
+      <button class="btn btn-success" (click)="onLogin()">Login</button>
+    </form>
+  </div> -->
+
+
+  <div class="container mt-7" id="login-section">
+    <h2>Login</h2>
+    <div class="col-12 justify-content-center align-items-center mt-4">
+        <input type="text" id="username" required [(ngModel)]="apiLoginObj.EmailId" />
+        <input type="password" [(ngModel)]="apiLoginObj.password" />
+        <button id="login-btn" class="btn btn-success" (click)="onLogin()">Login</button>
+    </div>
+
+  </div>
