@@ -1,5 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { PipeNaPipe } from '../pipe-na.pipe';
+import { HttpClient } from '@angular/common/http';
 
 @Component({
   selector: 'app-ng-for',
@@ -22,6 +23,18 @@ export class NgForComponent {
     city : 'karachi',
     email:'jon@gmail.com'
   }
+
+  constructor() {
+    this.getUsers();
+  }
+  http =inject(HttpClient);
+  getUsers(){
+    this.http.get("https://projectapi.gerasim.in/api/UserApp/GetAllUsers").subscribe((res:any)=>{
+      debugger;
+    })
+
+  }
   currentDate : Date = new Date();
+
 
 }

@@ -16,7 +16,7 @@ import { TemplateFormComponent } from './components/template-form/template-form.
 import { ReactiveFormComponent } from './components/reactive-form/reactive-form.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { GetApiComponent } from './components/get-api/get-api.component';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, provideHttpClient, withInterceptors } from '@angular/common/http';
 import { PostApiComponent } from './components/post-api/post-api.component';
 import { ResourceApiComponent } from './components/resource-api/resource-api.component';
 import { CustomerComponent } from './components/customer/customer.component';
@@ -27,6 +27,7 @@ import { TabsComponent } from './reusable/tabs/tabs.component';
 import { TempContainerComponent } from './components/temp-container/temp-container.component';
 import { LoginComponent } from './components/login/login.component';
 import { LayoutComponent } from './components/layout/layout.component';
+import { tokenInterceptor } from './components/intercepter/token.interceptor';
 
 @NgModule({
   declarations: [
@@ -61,7 +62,7 @@ import { LayoutComponent } from './components/layout/layout.component';
     ReactiveFormsModule,
     HttpClientModule
   ],
-  providers: [],
+  providers: [ provideHttpClient(withInterceptors([tokenInterceptor]))],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

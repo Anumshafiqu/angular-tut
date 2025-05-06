@@ -18,7 +18,9 @@ export class LoginComponent {
   http = inject(HttpClient)
   onLogin() {
     this.http.post("https://projectapi.gerasim.in/api/UserApp/login" , this.apiLoginObj).subscribe((res:any)=>{
-      localStorage.setItem("authguard" , res.data.userId)
+      debugger;
+      localStorage.setItem("authguard" , res.data.userId);
+      localStorage.setItem("authguardToken" , res.data.token);
       this.router.navigateByUrl('ng-for')
     },error=>{
       alert('wrong creadtials')

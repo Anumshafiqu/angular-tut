@@ -20,8 +20,8 @@
   <div class="container mt-7" id="login-section">
     <h2>Login</h2>
     <div class="col-12 justify-content-center align-items-center mt-4">
-        <input type="text" id="username" required [(ngModel)]="apiLoginObj.EmailId" />
-        <input type="password" [(ngModel)]="apiLoginObj.password" />
+        <input type="text" id="username" [(ngModel)]="apiLoginObj.EmailId" />
+        <input type="password" [(ngModel)]="apiLoginObj.Password" />
         <button id="login-btn" class="btn btn-success" (click)="onLogin()">Login</button>
     </div>
 

@@ -25,7 +25,7 @@ const routes: Routes = [
   { path: 'login', component: LoginComponent },
   {
     path: '', component: LayoutComponent,
-    canActivate : [authGuard],
+     canActivate : [authGuard],
      children: [
       { path: 'ng-if', component: NgIfComponent },
       { path: 'databinding', component: DatabindingComponent },
