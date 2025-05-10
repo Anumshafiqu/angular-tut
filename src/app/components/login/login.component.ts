@@ -21,7 +21,8 @@ export class LoginComponent {
       debugger;
       localStorage.setItem("authguard" , res.data.userId);
       localStorage.setItem("authguardToken" , res.data.token);
-      this.router.navigateByUrl('ng-for')
+      localStorage.setItem("angular19TokenData" , JSON.stringify(res.data));
+      this.router.navigateByUrl('ng-for');
     },error=>{
       alert('wrong creadtials')
     }

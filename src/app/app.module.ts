@@ -28,6 +28,7 @@ import { TempContainerComponent } from './components/temp-container/temp-contain
 import { LoginComponent } from './components/login/login.component';
 import { LayoutComponent } from './components/layout/layout.component';
 import { tokenInterceptor } from './components/intercepter/token.interceptor';
+import { errorInterceptor } from './components/intercepter/error.interceptor';
 
 @NgModule({
   declarations: [
@@ -62,7 +63,7 @@ import { tokenInterceptor } from './components/intercepter/token.interceptor';
     ReactiveFormsModule,
     HttpClientModule
   ],
-  providers: [ provideHttpClient(withInterceptors([tokenInterceptor]))],
+  providers: [ provideHttpClient(withInterceptors([tokenInterceptor,errorInterceptor]))],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

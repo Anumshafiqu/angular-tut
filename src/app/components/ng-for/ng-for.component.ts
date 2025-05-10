@@ -1,6 +1,7 @@
 import { Component, inject } from '@angular/core';
 import { PipeNaPipe } from '../pipe-na.pipe';
 import { HttpClient } from '@angular/common/http';
+import { CustomerService } from '../../services/customer.service';
 
 @Component({
   selector: 'app-ng-for',
@@ -24,8 +25,14 @@ export class NgForComponent {
     email:'jon@gmail.com'
   }
 
-  constructor() {
+  constructor(private custService : CustomerService) {
     this.getUsers();
+    this.custService.TokenReceived$.subscribe((res:any)=>{
+      if(res){
+        this.getUsers();
+      }
+    })
+
   }
   http =inject(HttpClient);
   getUsers(){
